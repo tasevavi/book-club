@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Calendar from './components/Calendar'
+import RecommendationCard, {
+    Recommendation,
+} from './components/RecommendationCard'
+import Button from './components/UI/Button'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // TODO: here fetch data for recommendations
+    const recommendations = [
+        {
+            id: '1',
+            by: 'Vili',
+            title: 'Test title',
+            author: 'Test author',
+            isFree: true,
+        },
+        {
+            id: '2',
+            by: 'Vili',
+            title: 'Test title22222',
+            author: 'Test author22222',
+            isFree: false,
+        },
+    ]
+    const buttonProps = { classes: {}, type: 'submit', text: 'Add' }
+    return (
+        <div className="App">
+            <header className="App-header"></header>
+            <RecommendationCard recommendation={recommendations[0]} />
+            <Calendar date={new Date()}></Calendar>
+            <Button btnProps={buttonProps} />
+        </div>
+    )
 }
 
-export default App;
+export default App

@@ -70,7 +70,7 @@ function NewRecommendation(props: any): JSX.Element {
                     </div>
                 </div>
                 <div className="new-recommendation-actions">
-                    <Button props={buttonProps}></Button>
+                    <Button></Button>
                 </div>
             </form>
         </div>
