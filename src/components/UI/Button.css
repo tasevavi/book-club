@@ -13,3 +13,7 @@ button:hover {
     background-color: rgb(140, 140, 196);
     cursor: pointer;
 }
+
+.new-recommendation-btn {
+    width: 200px;
+}
