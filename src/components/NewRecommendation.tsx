@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import Button from './UI/Button'
+import './NewRecommendation.css'
 
 // TODO: remove any
 function NewRecommendation(props: any): JSX.Element {
@@ -7,7 +8,11 @@ function NewRecommendation(props: any): JSX.Element {
     const [author, setAuthor] = useState('')
     const [checked, setChecked] = useState(false)
 
-    const buttonProps = { classes: {}, type: 'submit', text: 'Add Book' }
+    const buttonProps = {
+        class: 'new-recommendation-btn',
+        type: 'submit',
+        text: 'Add Book',
+    }
 
     const titleChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target?.value)
@@ -24,12 +29,13 @@ function NewRecommendation(props: any): JSX.Element {
     const submitHandler = (event: { preventDefault: () => void }) => {
         event.preventDefault()
         const newRecommendation = {
-            id: 'TODO',
+            id: (Math.random() * 10).toString,
             by: 'TODO',
             title: title,
             author: author,
             isFree: checked,
         }
+        console.log('saved:', newRecommendation)
         // if send successfully -> reset state
         resetState()
     }
@@ -41,7 +47,7 @@ function NewRecommendation(props: any): JSX.Element {
     }
 
     return (
-        <div>
+        <div className="new-recommendation-form">
             <form onSubmit={submitHandler}>
                 <div className="new-recommendation-controls">
                     <div className="new-recommendation-controls">
@@ -70,7 +76,7 @@ function NewRecommendation(props: any): JSX.Element {
                     </div>
                 </div>
                 <div className="new-recommendation-actions">
-                    <Button></Button>
+                    <Button props={buttonProps}></Button>
                 </div>
             </form>
         </div>
